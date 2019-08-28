@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import "./styles/Chat.css";
 import NavBar from "../components/NavBar";
 import Message from "../components/Message";
+import { URL } from "../util/Constants";
 
 class Chat extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ class Chat extends React.Component {
 
     let messages = [];
 
-    const socket = io("http://localhost:3700");
+    const socket = io(URL);
     socket.on("connect", () => {
       this.setState({ socket: socket });
     });
@@ -51,6 +52,9 @@ class Chat extends React.Component {
           );
         });
         ReactDOM.render(arrayElemets, document.getElementById("contenedor"));
+        document.getElementById(
+          "contenedor"
+        ).scrollTop = document.getElementById("contenedor").scrollHeight;
       } else {
         console.log("There is a problem:", data);
       }
