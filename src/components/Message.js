@@ -8,7 +8,9 @@ function Message(props) {
       <div className=" text-right">
         <b>{props.name}</b>
         <div className="row justify-content-end ">
-          <div className="col-8 box text-left">{props.message}</div>
+          <div className="col-8 box">
+            <div className="message">{props.message}</div>
+          </div>
         </div>
       </div>
     );
@@ -17,7 +19,7 @@ function Message(props) {
   return (
     <div>
       <b>{props.name}</b>
-      <div className="col-8 box">{props.message}</div>
+      <div className="col-8 box message">{props.message}</div>
     </div>
   );
 }
